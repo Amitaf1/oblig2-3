@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kinobilletter</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,800;1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sen:wght@400;700;800&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"><link>
+  <link
+          href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+          rel="stylesheet"  type='text/css'>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="navbar">
+  <div class="navbar-container">
+    <div class="logo-container"><h1 class="logo">CineTron</h1></div>
+    <div class="menu-container">
+      <ul class="menu-list">
+        <li class="menu-list-item active">Hjem</li>
+        <li class="menu-list-item">Kinoprogram</li>
+        <li class="menu-list-item">Filmer</li>
+        <li class="menu-list-item">Medlem</li>
+        <li class="menu-list-item">Nyheter</li>
+        <li class="menu-list-item">Gavekort</li>
+        <li class="menu-list-item">Firmabilletter</li>
+        <li class="menu-list-item">Spotlight</li>
+      </ul>
+    </div>
+    <div class="toggle">
+      <i class="fa-solid fa-moon toggle-icon"></i>
+      <i class="fa-solid fa-sun toggle-icon"></i>
+      <div class="toggle-ball"></div>
+    </div>
+  </div>
+</div>
+<div class="sidebar">
+  <i class="left-menu-icon fa-sharp fa-solid fa-house"></i>
+  <i class="left-menu-icon fa-sharp fa-solid fa-magnifying-glass"></i>
+  <i class="left-menu-icon fa-solid fa-bookmark"></i>
+  <i class="left-menu-icon fa-sharp fa-solid fa-cart-shopping"></i>
+</div>
+
+<div class="container">
+  <div class="content-container">
+    <div class="featured-content" style="background: linear-gradient(to top, rgba(0, 0, 0, 0), #E90064)"></div>
+
+    <div class="form-container">
+
+      <h1>Bestill kinobilletter</h1>
+
+      <form id="ticketForm" class="form-box">
+        <label for="film">Velg film:</label>
+        <select name="film" id="film" required>
+          <option selected disabled hidden>--Velg her--</option>
+          <option value="Ant-Man and the Wasp: Quantumania">Ant-Man and the Wasp: Quantumania</option>
+          <option value="Folk og røvere i Kardemommeby">Folk og røvere i Kardemommeby</option>
+          <option value="Puss in Boots: The Last Wish">Puss in Boots: The Last Wish</option>
+          <option value="John Wick: Chapter 4">John Wick: Chapter 4</option>
+          <option value="The Little Mermaid (2023)">The Little Mermaid (2023)</option>
+          <option value="Cocaine Bear">Cocaine Bear</option>
+          <option value="Sword Art Online Progressive: Scherzo of Deep Night">Sword Art Online Progressive: Scherzo of Deep Night</option>
+          <option value="Creed III">Creed III</option>
+        </select><br>
+
+
+        <label for="amount">Antall</label>
+        <input class="input-field" type="number" id="amount" name="amount" required /><br><br>
+
+        <label for="fname">Fornavn</label>
+        <input class="input-field" type="text" id="fname" name="fname" required /><br>
+
+        <label for="lname">Etternavn</label>
+        <input class="input-field" type="text" id="lname" name="lname" required /><br>
+
+        <label for="telnr">Telefonnr</label>
+        <input class="input-field" type="text" id="telnr" name="telnr" required /><br>
+
+        <label for="email">Epost</label>
+        <input class="input-field" type="text" id="email" name="email" required /><br>
+      </form>
+
+      <button id="submit" onclick="saveInput(event)">Kjøp billett</button><br>
+
+      <h2>Alle billetter</h2>
+      <section id="billetter"></section>
+
+      <button id="reset" onclick="deleteAll()">Slett alle billettene</button><br>
+
+
+    </div>
+  </div>
+</div>
+
+
+<script src="./registrering.js" async></script>
+
+</body>
+</html>
