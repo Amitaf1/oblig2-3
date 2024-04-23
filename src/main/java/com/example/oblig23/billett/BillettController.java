@@ -25,21 +25,31 @@ public class BillettController {
     Billett findBiId(@PathVariable Integer id) {
         Optional<Billett> billett = billettRepository.findById(id);
         if (billett.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new BillettNotFoundException();
         }
         return billett.get();
     }
 
 
     // post
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("")
     void create (@RequestBody Billett billett) {
         billettRepository.create(billett);
     }
 
 
     // put
-
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}")
+    void update (@RequestBody Billett billett, @PathVariable Integer id) {
+        billettRepository.update(billett, id);
+    }
 
     // delete
-
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    void delete (@PathVariable Integer id) {
+        billettRepository.delete(id);
+    }
 }

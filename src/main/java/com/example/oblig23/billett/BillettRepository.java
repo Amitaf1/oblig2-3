@@ -27,6 +27,17 @@ public class BillettRepository {
         billetter.add(billett);
     }
 
+    void update(Billett billett, Integer id) {
+        Optional<Billett> existingBillett = findById(id);
+        if (existingBillett.isPresent()) {
+            billetter.set(billetter.indexOf(existingBillett.get()), billett);
+        }
+    }
+
+    void delete(Integer id) {
+        billetter.removeIf(billett -> billett.getId().equals(id));
+    }
+
     @PostConstruct
     private void init() {
         billetter.add(new Billett(2,
