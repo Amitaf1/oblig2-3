@@ -1,6 +1,8 @@
 package com.example.oblig23.billett;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -16,24 +18,27 @@ public class Billett {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
 
     @NotBlank(message = "Film must not be blank")
     private String film;
 
-    @NotNull(message = "Amount must not be null")
+    @NotNull(message = "Amount cannot be null")
+    @Min(value = 1, message = "Amount must be at least 1")
     private Integer amount;
 
-    @NotBlank(message = "First name must not be blank")
+    @NotBlank(message = "First name is required")
     private String fname;
 
-    @NotBlank(message = "Last name must not be blank")
+    @NotBlank(message = "Last name is required")
     private String lname;
 
-    @NotNull(message = "Telephone number must not be null")
+    @NotNull(message = "Telephone number cannot be null")
     private Integer telnr;
 
-    @NotBlank(message = "Email must not be blank")
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
     private String email;
 
     public Billett(String film, Integer amount, String fname, String lname, Integer telnr, String email) {

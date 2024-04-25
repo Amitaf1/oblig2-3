@@ -1,12 +1,26 @@
 package com.example.oblig23.billett;
 
+import jakarta.validation.constraints.NotEmpty;
+import org.jetbrains.annotations.NotNull;
+
 public class BillettRequest {
 
+    @NotEmpty(message = "Film name must not be empty")
     private String film;
+
+    @NotNull
     private Integer amount;
+
+    @NotEmpty
     private String fname;
+
+    @NotEmpty
     private String lname;
+
+    @NotNull
     private Integer telnr;
+
+    @NotEmpty
     private String email;
 
     public BillettRequest() {
@@ -68,6 +82,18 @@ public class BillettRequest {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "BillettRequest{" +
+                "film='" + film + '\'' +
+                ", amount=" + amount +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                ", telnr=" + telnr +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
 

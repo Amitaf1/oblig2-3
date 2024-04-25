@@ -7,3 +7,4 @@ CREATE TABLE IF NOT EXISTS `billett` (
     `telnr` INTEGER NOT NULL,
     `email` VARCHAR(50) NOT NULL
     );
+
