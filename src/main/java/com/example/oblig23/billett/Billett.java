@@ -1,5 +1,8 @@
 package com.example.oblig23.billett;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,18 +10,33 @@ import java.util.Objects;
 
 @NoArgsConstructor
 @Data
+@Entity
+@Table(name = "billett")
 public class Billett {
 
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @NotBlank(message = "Film must not be blank")
     private String film;
+
+    @NotNull(message = "Amount must not be null")
     private Integer amount;
+
+    @NotBlank(message = "First name must not be blank")
     private String fname;
+
+    @NotBlank(message = "Last name must not be blank")
     private String lname;
+
+    @NotNull(message = "Telephone number must not be null")
     private Integer telnr;
+
+    @NotBlank(message = "Email must not be blank")
     private String email;
 
-    public Billett(Integer id, String film, Integer amount, String fname, String lname, Integer telnr, String email) {
-        this.id = id;
+    public Billett(String film, Integer amount, String fname, String lname, Integer telnr, String email) {
         this.film = film;
         this.amount = amount;
         this.fname = fname;
@@ -28,7 +46,7 @@ public class Billett {
     }
 
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
@@ -100,8 +118,7 @@ public class Billett {
     @Override
     public String toString() {
         return "Billett{" +
-                "id=" + id +
-                ", film='" + film + '\'' +
+                "film='" + film + '\'' +
                 ", amount=" + amount +
                 ", fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +

@@ -1,54 +1,55 @@
 package com.example.oblig23.billett;
 
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/billetter")
 public class BillettController {
 
-    private final BillettRepository billettRepository;
+    private final BillettService billettService;
 
-    public BillettController(BillettRepository billettRepository) {
-        this.billettRepository = billettRepository;
+    @Autowired
+    public BillettController(BillettService billettService) {
+        this.billettService = billettService;
     }
-    @GetMapping("")
-    List<Billett> findAll() {
-       return billettRepository.findAll();
-   }
 
-    @GetMapping("/{id}")
-    Billett findBiId(@PathVariable Integer id) {
-        Optional<Billett> billett = billettRepository.findById(id);
-        if (billett.isEmpty()) {
-            throw new BillettNotFoundException();
+    @GetMapping("/all")
+    public ResponseEntity<List<Billett>> getAllBilletter() {
+        List<Billett> billetList = billettService.getAllBilletter(); // Use billetList
+        return ResponseEntity.ok(billetList);
+    }
+
+
+    @PostMapping("/create")
+    public ResponseEntity<Billett> createBillett(@RequestBody BillettRequest request) {
+        Billett createdBillett = billettService.createBillett(request);
+        // Ensure createBillett in BillettService returns the saved Billett object
+        if (createdBillett == null) {
+            // Handle potential errors during creation (optional)
+            return ResponseEntity.badRequest().build();
         }
-        return billett.get();
+        return ResponseEntity.ok(createdBillett);
     }
 
-
-    // post
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("")
-    void create (@RequestBody Billett billett) {
-        billettRepository.create(billett);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Billett> updateBillett(@PathVariable Integer id, @RequestBody BillettRequest request) {
+        Billett updatedBillett = billettService.updateBillett(id, request);
+        return ResponseEntity.ok(updatedBillett);
     }
 
-
-    // put
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/{id}")
-    void update (@RequestBody Billett billett, @PathVariable Integer id) {
-        billettRepository.update(billett, id);
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Billett> getBillettById(@PathVariable Integer id) {
+        Billett billett = billettService.getBillettById(id);
+        return ResponseEntity.ok(billett);
     }
 
-    // delete
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
-    void delete (@PathVariable Integer id) {
-        billettRepository.delete(id);
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> slettAlleBilletter() {
+        billettService.slettAlleBilletter();
+        return ResponseEntity.noContent().build();
     }
 }

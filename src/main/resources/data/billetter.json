@@ -1,0 +1,84 @@
+{
+  "billetter": [
+    {
+      "film": "Mean Girls",
+      "amount": 2,
+      "fname": "Ali",
+      "lname": "Ali",
+      "telnr": 12345678,
+      "email": "a@a.com"
+    },
+    {
+      "film": "Abigail",
+      "amount": 1,
+      "fname": "Sara",
+      "lname": "Ali",
+      "telnr": 87654321,
+      "email": "s@a.com"
+    },
+    {
+      "film": "Anatomy of a fall",
+      "amount": 5,
+      "fname": "Yusuf",
+      "lname": "Ali",
+      "telnr": 13572468,
+      "email": "y@a.com"
+    },
+    {
+      "film": "Barbie",
+      "amount": 2,
+      "fname": "Noor",
+      "lname": "Ali",
+      "telnr": 24681357,
+      "email": "n@a.com"
+    },
+    {
+      "film": "Spider-Man (2002)",
+      "amount": 3,
+      "fname": "Hassan",
+      "lname": "Ali",
+      "telnr": 75318642,
+      "email": "h@a.com"
+    },
+    {
+      "film": "Bukkene Bruse på badeland",
+      "amount": 2,
+      "fname": "Mehmed",
+      "lname": "Ali",
+      "telnr": 86427531,
+      "email": "m@a.com"
+    },
+    {
+      "film": "Dune: Part two",
+      "amount": 1,
+      "fname": "Ali",
+      "lname": "Ali",
+      "telnr": 12345678,
+      "email": "a@a.com"
+    },
+    {
+      "film": "Monkey Man",
+      "amount": 1,
+      "fname": "Mehmed",
+      "lname": "Ali",
+      "telnr": 86427531,
+      "email": "m@a.com"
+    },
+    {
+      "film": "Spy X Family Code: White",
+      "amount": 2,
+      "fname": "Sara",
+      "lname": "Ali",
+      "telnr": 87654321,
+      "email": "s@a.com"
+    },
+    {
+      "film": "Wicked Little Letters",
+      "amount": 2,
+      "fname": "Noor",
+      "lname": "Ali",
+      "telnr": 24681357,
+      "email": "n@a.com"
+    }
+  ]
+}
